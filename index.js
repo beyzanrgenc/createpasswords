@@ -17,7 +17,7 @@ function handleFileSelect(evt) {
       return function(e) {
         var arrayBuffer = e.target.result;
 
-        var hash = CryptoJS.SHA256(arrayBufferToWordArray(arrayBuffer));
+        var hash = CryptoJS.SHA256(arrayBuffer);
         var elem = document.getElementById("hash");
         elem.value = hash;
       };

@@ -18,3 +18,28 @@ function handleFileSelect(evt) {
 
 document.getElementById('document').addEventListener('change', handleFileSelect, false);
 
+function ChangeVisibilityOfPassword() {
+  var passwordSection = document.getElementById("hash");
+  var pswrdIcon = document.getElementById("pswIcon");
+  if (passwordSection.type === "password") {
+    passwordSection.type = "text";
+	pswrdIcon.className="fas fa-eye"
+  } else {
+    passwordSection.type = "password";
+	pswrdIcon.className="fas fa-eye-slash"
+  }
+}
+
+function copyToClipboard() {
+  var copyText = document.getElementById("hash");
+  var isPassword = false;
+  if (copyText.type === "password") {
+    copyText.type = "text";
+	isPassword = true;
+  } 
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  if(isPassword)
+	copyText.type = "password";
+}
